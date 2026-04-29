@@ -78,7 +78,7 @@
 
 .agentic-step:hover .step-icon {
   border-color: #e87722;
-  box-shadow: 0 0 0 6px rgba(232, 119, 34, 0.1);
+  box-shadow: 0 0 0 6px rgb(232 119 34 / 10%);
 }
 
 /* Connector dots between steps */
@@ -87,7 +87,7 @@
   height: 2px;
   background: repeating-linear-gradient(
     to right,
-    #e87722 0px,
+    #e87722 0,
     #e87722 5px,
     transparent 5px,
     transparent 12px
@@ -147,9 +147,9 @@
 
 /* Function card */
 .function-card {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgb(255 255 255 / 15%);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgb(255 255 255 / 25%);
   border-radius: 16px;
   padding: 2rem 1.75rem;
   color: #fff;
@@ -157,14 +157,14 @@
 }
 
 .function-card:hover {
-  background: rgba(255,255,255,0.22);
+  background: rgb(255 255 255 / 22%);
   transform: translateY(-4px);
 }
 
 .function-card.featured {
-  background: rgba(255,255,255,0.28);
-  border-color: rgba(255,255,255,0.55);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  background: rgb(255 255 255 / 28%);
+  border-color: rgb(255 255 255 / 55%);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 20%);
 }
 
 .function-icon {
@@ -182,7 +182,7 @@
 
 .function-card p {
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.85);
+  color: rgb(255 255 255 / 85%);
   line-height: 1.55;
   margin: 0 0 1rem;
 }
@@ -193,7 +193,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgb(255 255 255 / 50%);
   padding-bottom: 2px;
   transition: border-color 0.15s;
 }
@@ -203,7 +203,7 @@
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .agentic-steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -225,7 +225,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .agentic-steps {
     grid-template-columns: 1fr 1fr;
   }

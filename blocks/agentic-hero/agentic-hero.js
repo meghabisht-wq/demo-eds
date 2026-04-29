@@ -128,5 +128,6 @@ export default function decorate(block) {
     });
   }, { threshold: 0.15 });
 
-  steps.forEach(step => observer.observe(step));
+  // ✅ Fixed
+  steps.forEach((step) => observer.observe(step));
 }
