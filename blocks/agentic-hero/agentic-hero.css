@@ -1,0 +1,240 @@
+/* ===========================
+   AGENTIC-HERO BLOCK - AEM EDS
+   =========================== */
+
+/* ---- Hero Section ---- */
+.agentic-hero-section {
+  padding: 5rem 2rem 4rem;
+  background: #fff;
+  text-align: center;
+}
+
+.agentic-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.agentic-hero-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -0.03em;
+  margin: 0 0 3.5rem;
+  line-height: 1.2;
+}
+
+/* Steps row */
+.agentic-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.agentic-step {
+  flex: 1;
+  min-width: 160px;
+  max-width: 210px;
+  padding: 0 0.5rem;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.agentic-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Icon wrapper with connector dots */
+.step-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #e8e8e8;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  position: relative;
+  z-index: 1;
+}
+
+.step-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.agentic-step:hover .step-icon {
+  border-color: #e87722;
+  box-shadow: 0 0 0 6px rgba(232, 119, 34, 0.1);
+}
+
+/* Connector dots between steps */
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    #e87722 0px,
+    #e87722 5px,
+    transparent 5px,
+    transparent 12px
+  );
+  position: absolute;
+  left: calc(50% + 40px);
+  right: calc(-50% + 40px);
+  top: 39px;
+  z-index: 0;
+}
+
+/* Last step has no connector */
+.agentic-step:last-child .step-connector {
+  display: none;
+}
+
+.agentic-step h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
+}
+
+.agentic-step p {
+  font-size: 0.8rem;
+  color: #777;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---- Functions Section ---- */
+.agentic-functions-section {
+  background: linear-gradient(135deg, #f5a05a 0%, #e87722 60%, #d4621a 100%);
+  padding: 5rem 2rem;
+}
+
+.agentic-functions-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.agentic-functions-title {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0 0 3rem;
+  text-align: left;
+}
+
+.agentic-functions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* Function card */
+.function-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  color: #fff;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.function-card:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-4px);
+}
+
+.function-card.featured {
+  background: rgba(255,255,255,0.28);
+  border-color: rgba(255,255,255,0.55);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.function-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.85rem;
+  display: block;
+}
+
+.function-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.6rem;
+}
+
+.function-card p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.55;
+  margin: 0 0 1rem;
+}
+
+.function-cta {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: 2px;
+  transition: border-color 0.15s;
+}
+
+.function-cta:hover {
+  border-color: #fff;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .agentic-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .step-connector {
+    display: none;
+  }
+
+  .agentic-step {
+    max-width: 100%;
+  }
+
+  .agentic-functions-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .agentic-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .agentic-hero-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .agentic-functions-section {
+    padding: 3rem 1.25rem;
+  }
+}
