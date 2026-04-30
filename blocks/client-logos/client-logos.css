@@ -1,0 +1,89 @@
+/* ===========================
+   CLIENT LOGOS BLOCK - AEM EDS
+   =========================== */
+
+.client-logos {
+  background: #fff;
+  padding: 3rem 2rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.client-logos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.client-logos-label {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin: 0 0 2rem;
+}
+
+/* Scrolling track */
+.client-logos-track-wrapper {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%
+  );
+}
+
+.client-logos-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: logos-scroll 30s linear infinite;
+}
+
+.client-logos-track:hover {
+  animation-play-state: paused;
+}
+
+.client-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  height: 52px;
+  background: #f8f8f8;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  padding: 0 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.client-logo-item:hover {
+  background: #fff;
+  color: #e87722;
+  border-color: #e87722;
+}
+
+@keyframes logos-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (width <= 600px) {
+  .client-logos {
+    padding: 2rem 0;
+  }
+}
