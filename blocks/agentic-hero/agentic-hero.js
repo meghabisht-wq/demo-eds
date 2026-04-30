@@ -1,133 +1,91 @@
 export default function decorate(block) {
   block.innerHTML = `
-    <!-- ===== HERO SECTION ===== -->
-    <section class="agentic-hero-section">
-      <div class="agentic-hero-container">
-        <h1 class="agentic-hero-title">Embed Agentic AI across your Enterprise</h1>
+    <div class="bf-wrapper">
+      <h2 class="bf-title">AI Agents Engineered for Your Business Functions</h2>
 
-        <div class="agentic-steps">
+      <div class="bf-cards">
 
-          <div class="agentic-step">
-            <div class="step-icon-wrap">
-              <div class="step-icon">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="8" y="10" width="14" height="10" rx="2" stroke="#e87722" stroke-width="2"/>
-                  <rect x="26" y="10" width="14" height="10" rx="2" stroke="#e87722" stroke-width="2"/>
-                  <rect x="8" y="28" width="14" height="10" rx="2" stroke="#e87722" stroke-width="2"/>
-                  <rect x="26" y="28" width="14" height="10" rx="2" stroke="#e87722" stroke-width="2"/>
-                </svg>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-            <h3>Leverage Unified Data</h3>
-            <p>With SearchUnifyFRAG™ make your data the foundation of success.</p>
+        <div class="bf-card">
+          <div class="bf-card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 4L6 14v10c0 11 7.8 21.3 18 24 10.2-2.7 18-13 18-24V14L24 4z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M18 24l4 4 8-8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
-
-          <div class="agentic-step">
-            <div class="step-icon-wrap">
-              <div class="step-icon">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="24" cy="24" r="14" stroke="#e87722" stroke-width="2"/>
-                  <path d="M18 24l4 4 8-8" stroke="#e87722" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-            <h3>Select Optimal Models</h3>
-            <p>Choose the best mix of LLMs (BYOLLM) to get results tailored to your goals.</p>
-          </div>
-
-          <div class="agentic-step">
-            <div class="step-icon-wrap">
-              <div class="step-icon">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 8l16 8v8c0 8-6.4 15.4-16 18C14.4 39.4 8 32 8 24v-8l16-8z" stroke="#e87722" stroke-width="2"/>
-                  <path d="M18 24l4 4 8-8" stroke="#e87722" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-            <h3>Forge Operational Resilience</h3>
-            <p>Secure every stage of the AI lifecycle with robust Multi-layered framework.</p>
-          </div>
-
-          <div class="agentic-step">
-            <div class="step-icon-wrap">
-              <div class="step-icon">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="24" cy="20" r="8" stroke="#e87722" stroke-width="2"/>
-                  <path d="M12 40c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#e87722" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M30 14l4-4M34 20h4" stroke="#e87722" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-            <h3>Ensure Ethical Autonomy</h3>
-            <p>Foster user confidence with built-in governance and guardrails that steer AI ethically.</p>
-          </div>
-
-          <div class="agentic-step">
-            <div class="step-icon-wrap">
-              <div class="step-icon">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="10" y="14" width="28" height="20" rx="2" stroke="#e87722" stroke-width="2"/>
-                  <path d="M18 34v4M30 34v4M14 38h20" stroke="#e87722" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M20 24h8M24 20v8" stroke="#e87722" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-            </div>
-            <h3>Deploy with Confidence</h3>
-            <p>Accelerate outcomes with prebuilt AI agents; tailored for enterprise needs.</p>
-          </div>
-
+          <h3>IT</h3>
+          <p>AI-powered agents for proactive IT support and infrastructure monitoring-resolving incidents faster, enhancing security, and ensuring uptime.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- ===== AI AGENTS SECTION ===== -->
-    <section class="agentic-functions-section">
-      <div class="agentic-functions-container">
-        <h2 class="agentic-functions-title">AI Agents Engineered for Your Business Functions</h2>
-
-        <div class="agentic-functions-grid">
-
-          <div class="function-card">
-            <div class="function-icon">🏪</div>
-            <h3>Commerce</h3>
-            <p>Power intelligent product discovery and personalized shopping experiences.</p>
+        <div class="bf-card">
+          <div class="bf-card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="10" width="16" height="12" rx="2" stroke="#fff" stroke-width="2"/>
+              <rect x="26" y="10" width="16" height="12" rx="2" stroke="#fff" stroke-width="2"/>
+              <rect x="6" y="26" width="16" height="12" rx="2" stroke="#fff" stroke-width="2"/>
+              <rect x="26" y="26" width="16" height="12" rx="2" stroke="#fff" stroke-width="2"/>
+            </svg>
           </div>
-
-          <div class="function-card featured">
-            <div class="function-icon">🎧</div>
-            <h3>Customer Support</h3>
-            <p>Deliver exceptional support with scalable Agentic AI tailored for your enterprise.</p>
-            <a href="#" class="function-cta">Learn More →</a>
-          </div>
-
-          <div class="function-card">
-            <div class="function-icon">💰</div>
-            <h3>Sales Enablement</h3>
-            <p>Equip your sales teams with AI-powered insights and guided selling workflows.</p>
-          </div>
-
+          <h3>Marketing</h3>
+          <p>Drive higher ROI with AI agents that power hyper-personalized campaigns and real-time performance optimization.</p>
         </div>
+
+        <div class="bf-card bf-card--featured">
+          <div class="bf-card-icon bf-card-icon--featured">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="18" r="8" stroke="#fff" stroke-width="2"/>
+              <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+              <path d="M30 10l3-3M34 16h3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Customer Support</h3>
+          <p>Deliver exceptional support with scalable Agentic AI-faster resolutions, higher CSAT, and lower operational costs from first contact to close.</p>
+          <div class="bf-card-arrow">&#8964;</div>
+        </div>
+
+        <div class="bf-card">
+          <div class="bf-card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="14" stroke="#fff" stroke-width="2"/>
+              <path d="M24 16v8l5 5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17 10l-3-3M10 17l-3-3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Sales</h3>
+          <p>Accelerate your sales funnel with AI-driven lead qualification, deal acceleration, and actionable insights for smarter selling.</p>
+        </div>
+
+        <div class="bf-card">
+          <div class="bf-card-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="16" r="8" stroke="#fff" stroke-width="2"/>
+              <path d="M8 42c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Human Resource</h3>
+          <p>Transform HR with intelligent agents that optimize talent acquisition, boost retention, and enable data-driven workforce management.</p>
+        </div>
+
       </div>
-    </section>
+
+      <div class="bf-mascot">
+        <div class="bf-mascot-robot">🤖</div>
+      </div>
+
+    </div>
   `;
 
-  // Animate steps on scroll
-  const steps = block.querySelectorAll('.agentic-step');
+  // Animate cards on scroll
+  const cards = block.querySelectorAll('.bf-card');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, i * 100);
+          entry.target.classList.add('bf-card--visible');
+        }, i * 120);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
 
-  // ✅ Fixed
-  steps.forEach((step) => observer.observe(step));
+  cards.forEach((card) => observer.observe(card));
 }

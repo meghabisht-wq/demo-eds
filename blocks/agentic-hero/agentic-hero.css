@@ -1,240 +1,234 @@
 /* ===========================
-   AGENTIC-HERO BLOCK - AEM EDS
+   BUSINESS FUNCTIONS BLOCK
+   AEM EDS
    =========================== */
 
-/* ---- Hero Section ---- */
-.agentic-hero-section {
-  padding: 5rem 2rem 4rem;
-  background: #fff;
-  text-align: center;
+.business-functions {
+  padding: 0;
+  margin: 0;
 }
 
-.agentic-hero-container {
-  max-width: 100%;
+.bf-wrapper {
+  position: relative;
+  background: linear-gradient(160deg, #f5a05a 0%, #e87722 40%, #d4621a 100%);
+  padding: 5rem 2rem 6rem;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+/* Dotted background pattern */
+.bf-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgb(255 255 255 / 15%) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+/* Title */
+.bf-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 3.5rem;
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cards row */
+.bf-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
-.agentic-hero-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
-  font-weight: 800;
-  color: #1a1a1a;
-  letter-spacing: -0.03em;
-  margin: 0 0 3.5rem;
-  line-height: 1.2;
-}
-
-/* Steps row */
-.agentic-steps {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: wrap;
-}
-
-.agentic-step {
+/* Base card */
+.bf-card {
+  background: rgb(255 255 255 / 18%);
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
   flex: 1;
-  min-width: 160px;
-  max-width: 210px;
-  padding: 0 0.5rem;
+  min-width: 180px;
+  max-width: 220px;
+  color: #fff;
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+  position: relative;
 }
 
-.agentic-step.visible {
+.bf-card--visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Icon wrapper with connector dots */
-.step-icon-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
-}
-
-.step-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 2px solid #e8e8e8;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: border-color 0.25s, box-shadow 0.25s;
-  position: relative;
-  z-index: 1;
-}
-
-.step-icon svg {
-  width: 36px;
-  height: 36px;
-}
-
-.agentic-step:hover .step-icon {
-  border-color: #e87722;
-  box-shadow: 0 0 0 6px rgb(232 119 34 / 10%);
-}
-
-/* Connector dots between steps */
-.step-connector {
-  flex: 1;
-  height: 2px;
-  background: repeating-linear-gradient(
-    to right,
-    #e87722 0,
-    #e87722 5px,
-    transparent 5px,
-    transparent 12px
-  );
-  position: absolute;
-  left: calc(50% + 40px);
-  right: calc(-50% + 40px);
-  top: 39px;
-  z-index: 0;
-}
-
-/* Last step has no connector */
-.agentic-step:last-child .step-connector {
-  display: none;
-}
-
-.agentic-step h3 {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin: 0 0 0.5rem;
-  line-height: 1.35;
-}
-
-.agentic-step p {
-  font-size: 0.8rem;
-  color: #777;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* ---- Functions Section ---- */
-.agentic-functions-section {
-  background: linear-gradient(135deg, #f5a05a 0%, #e87722 60%, #d4621a 100%);
-  padding: 5rem 2rem;
-}
-
-.agentic-functions-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.agentic-functions-title {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.03em;
-  margin: 0 0 3rem;
-  text-align: left;
-}
-
-.agentic-functions-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
-/* Function card */
-.function-card {
-  background: rgb(255 255 255 / 15%);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgb(255 255 255 / 25%);
-  border-radius: 16px;
-  padding: 2rem 1.75rem;
-  color: #fff;
-  transition: background 0.25s, transform 0.25s;
-}
-
-.function-card:hover {
-  background: rgb(255 255 255 / 22%);
-  transform: translateY(-4px);
-}
-
-.function-card.featured {
+.bf-card:hover {
   background: rgb(255 255 255 / 28%);
-  border-color: rgb(255 255 255 / 55%);
-  box-shadow: 0 8px 32px rgb(0 0 0 / 20%);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 15%);
+  transform: translateY(-6px);
 }
 
-.function-icon {
-  font-size: 1.75rem;
-  margin-bottom: 0.85rem;
-  display: block;
+/* Featured card - Customer Support */
+.bf-card--featured {
+  background: #e87722;
+  border: 2px solid rgb(255 255 255 / 60%);
+  box-shadow: 0 16px 48px rgb(0 0 0 / 25%);
+  transform: translateY(-20px) !important;
+  min-width: 210px;
+  max-width: 240px;
+  padding: 2rem 1.75rem;
+  z-index: 2;
 }
 
-.function-card h3 {
-  font-size: 1rem;
+.bf-card--featured.bf-card--visible {
+  opacity: 1;
+  transform: translateY(-20px) !important;
+}
+
+.bf-card--featured:hover {
+  background: #cf621a;
+  transform: translateY(-26px) !important;
+}
+
+/* Card icon */
+.bf-card-icon {
+  width: 44px;
+  height: 44px;
+  background: rgb(255 255 255 / 20%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.bf-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bf-card-icon--featured {
+  background: rgb(255 255 255 / 30%);
+}
+
+/* Card text */
+.bf-card h3 {
+  font-size: 0.95rem;
   font-weight: 700;
   color: #fff;
   margin: 0 0 0.6rem;
+  line-height: 1.3;
 }
 
-.function-card p {
-  font-size: 0.85rem;
+.bf-card p {
+  font-size: 0.8rem;
   color: rgb(255 255 255 / 85%);
-  line-height: 1.55;
-  margin: 0 0 1rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
-.function-cta {
-  display: inline-block;
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid rgb(255 255 255 / 50%);
-  padding-bottom: 2px;
-  transition: border-color 0.15s;
+/* Featured card arrow */
+.bf-card-arrow {
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(255 255 255 / 70%);
+  margin-top: 1rem;
+  line-height: 1;
 }
 
-.function-cta:hover {
-  border-color: #fff;
+/* Mascot robot */
+.bf-mascot {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
 }
 
-/* ---- Responsive ---- */
-@media (width <= 900px) {
-  .agentic-steps {
+.bf-mascot-robot {
+  font-size: 5rem;
+  line-height: 1;
+  filter: drop-shadow(0 8px 24px rgb(0 0 0 / 30%));
+  animation: mascot-float 3s ease-in-out infinite;
+}
+
+@keyframes mascot-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Responsive */
+@media (width <= 1024px) {
+  .bf-cards {
+    gap: 1rem;
+  }
+
+  .bf-card {
+    min-width: 160px;
+  }
+}
+
+@media (width <= 768px) {
+  .bf-wrapper {
+    padding: 3rem 1.25rem 5rem;
+  }
+
+  .bf-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 480px;
   }
 
-  .step-connector {
-    display: none;
+  .bf-card {
+    max-width: 100%;
+    min-width: 100%;
   }
 
-  .agentic-step {
+  .bf-card--featured {
+    grid-column: 1 / -1;
+    transform: none !important;
     max-width: 100%;
   }
 
-  .agentic-functions-grid {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-    margin: 0 auto;
+  .bf-card--featured.bf-card--visible {
+    transform: none !important;
+  }
+
+  .bf-card--featured:hover {
+    transform: translateY(-4px) !important;
   }
 }
 
-@media (width <= 600px) {
-  .agentic-steps {
-    grid-template-columns: 1fr 1fr;
+@media (width <= 480px) {
+  .bf-cards {
+    grid-template-columns: 1fr;
+    max-width: 100%;
   }
 
-  .agentic-hero-section {
-    padding: 3rem 1.25rem;
-  }
-
-  .agentic-functions-section {
-    padding: 3rem 1.25rem;
+  .bf-mascot-robot {
+    font-size: 3.5rem;
   }
 }
