@@ -1,0 +1,242 @@
+/* ===========================
+   AGENT SHOWCASE BLOCK
+   AEM EDS — SearchUnify Style
+   Sticky left + Scrolling right
+   =========================== */
+
+.agent-showcase {
+  padding: 0;
+  margin: 0;
+}
+
+.as-wrapper {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  gap: 4rem;
+}
+
+/* ── Left panel (sticky) ── */
+.as-left {
+  flex: 0 0 420px;
+  position: sticky;
+  top: 88px; /* below fixed header */
+  max-height: calc(100vh - 100px);
+}
+
+.as-left-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.as-left-title {
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.as-left-title strong,
+.as-left-title b {
+  color: #e87722;
+}
+
+.as-left-desc {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.75;
+  max-width: 380px;
+}
+
+.as-left-desc p {
+  margin: 0;
+}
+
+.as-left-image {
+  margin-top: 1.5rem;
+}
+
+.as-left-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* ── Right panel (scrolls) ── */
+.as-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.as-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Individual card ── */
+.as-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.5s ease calc(var(--i, 0) * 0.08s),
+              transform 0.5s ease calc(var(--i, 0) * 0.08s);
+  padding-bottom: 0;
+}
+
+.as-card-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Timeline connector */
+.as-card-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 1.75rem;
+}
+
+.as-card-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e87722;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #e87722;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.as-card-line {
+  width: 2px;
+  flex: 1;
+  min-height: 40px;
+  background: linear-gradient(to bottom, #e87722, #f0c090);
+  margin-top: 4px;
+}
+
+/* Card body */
+.as-card-body {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #f0ede9;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 5%);
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+}
+
+.as-card-body:hover {
+  box-shadow: 0 8px 32px rgb(232 119 34 / 12%);
+  border-color: #f5c49a;
+  transform: translateY(-3px);
+}
+
+/* Card icon */
+.as-card-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  background: #fff5ee;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fde0c8;
+}
+
+.as-card-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.as-card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Card text */
+.as-card-content {
+  flex: 1;
+}
+
+.as-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.as-card-desc {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.as-card-desc p {
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (width <= 1024px) {
+  .as-wrapper {
+    gap: 2.5rem;
+    padding: 3.5rem 1.5rem;
+  }
+
+  .as-left {
+    flex: 0 0 320px;
+  }
+}
+
+@media (width <= 768px) {
+  .as-wrapper {
+    flex-direction: column;
+    padding: 3rem 1.25rem;
+    gap: 2rem;
+  }
+
+  .as-left {
+    position: static;
+    flex: none;
+    max-height: none;
+    width: 100%;
+  }
+
+  .as-left-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .as-card-body {
+    padding: 1.25rem;
+  }
+}
+
+@media (width <= 480px) {
+  .as-card-body {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .as-card-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
