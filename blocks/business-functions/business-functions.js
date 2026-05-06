@@ -51,7 +51,7 @@ export default function decorate(block) {
             </div>
             <h3>${title}</h3>
             <p>${description}</p>
-            ${isFeatured ? '<div class="bf-card-arrow">&#8964;</div>' : ''}
+            ${isFeatured ? '<div class="bf-card-arrow"></div>' : ''}
           </div>
         `).join('')}
       </div>

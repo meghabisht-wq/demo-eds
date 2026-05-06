@@ -58,7 +58,7 @@
 /* Base card */
 .bf-card {
   background: rgb(255 255 255 / 18%);
-  border: 1px solid rgb(255 255 255 / 25%);
+  border: 1px solid #ffffff40;
   border-radius: 16px;
   padding: 1.75rem 1.5rem;
   flex: 1;
