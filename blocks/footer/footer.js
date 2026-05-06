@@ -3,7 +3,7 @@ export default function decorate(block) {
 
   // Parse data from block table
   let tagline = '';
-  let socialLinks = [];
+  const socialLinks = [];
   const linkGroups = [];
   let copyrightText = '';
   const legalLinks = [];
@@ -11,8 +11,6 @@ export default function decorate(block) {
   rows.forEach((row) => {
     const cols = [...row.children];
     const type = cols[0]?.textContent?.trim().toLowerCase();
-    const value = cols[1]?.innerHTML?.trim() || '';
-    const extra = cols[2]?.innerHTML?.trim() || '';
 
     if (type === 'tagline') {
       tagline = cols[1]?.textContent?.trim();
@@ -81,3 +79,4 @@ export default function decorate(block) {
     </div>
   `;
 }
+
