@@ -45,8 +45,8 @@ export default function decorate(block) {
       <h2 class="bf-title">AI Agents Engineered for Your Business Functions</h2>
       <div class="bf-cards">
         ${cards.map(({ title, description, isFeatured }) => `
-          <div class="bf-card ${isFeatured ? 'bf-card--featured' : ''}">
-            <div class="bf-card-icon ${isFeatured ? 'bf-card-icon--featured' : ''}">
+          <div class="bf-card ${isFeatured ? 'bf-card-featured' : ''}">
+            <div class="bf-card-icon ${isFeatured ? 'bf-card-icon-featured' : ''}">
               ${iconMap[title] || ''}
             </div>
             <h3>${title}</h3>
@@ -67,7 +67,7 @@ export default function decorate(block) {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
-          entry.target.classList.add('bf-card--visible');
+          entry.target.classList.add('bf-card-visible');
         }, i * 120);
         observer.unobserve(entry.target);
       }
