@@ -15,8 +15,6 @@ export default async function decorate(block) {
 
   // Parse data from block table
   let topbarText = '';
-  let topbarLinkText = '';
-  let topbarLinkUrl = '';
   let logoText = 'SearchUnify';
   let logoUrl = '/';
   let demoBtnText = 'Book a Demo ↗';
@@ -31,8 +29,6 @@ export default async function decorate(block) {
       topbarText = cols[1]?.textContent?.trim();
       const link = cols[1]?.querySelector('a');
       if (link) {
-        topbarLinkText = link.textContent.trim();
-        topbarLinkUrl = link.href || '#';
         // Remove link text from topbar text
         topbarText = cols[1]?.innerHTML || '';
       }
