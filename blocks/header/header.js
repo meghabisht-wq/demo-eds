@@ -1,83 +1,103 @@
-export default function decorate(block) {
-  block.innerHTML = `
-    <div class="header-topbar">
-      <div class="header-topbar-inner">
-        <span class="topbar-text">
-          🏆 SearchUnify Knowbler Wins Gold Globee® Award for AI-Powered Knowledge Management
-          <a href="/press-release/searchunify-knowbler-wins-gold-globee-award/" class="topbar-link">Know More →</a>
-        </span>
-      </div>
-    </div>
+export default async function decorate(block) {
+  // When loaded via loadHeader() in scripts.js, the block is built empty.
+  // Fetch the header document content ourselves in that case.
+  let rows = [...block.children].filter((row) => row.children[0]?.textContent?.trim());
 
+  if (rows.length === 0) {
+    const resp = await fetch('/header.plain.html');
+    if (resp.ok) {
+      const temp = document.createElement('div');
+      temp.innerHTML = await resp.text();
+      const headerBlock = temp.querySelector('.header') || temp;
+      rows = [...headerBlock.children].filter((row) => row.children[0]?.textContent?.trim());
+    }
+  }
+
+  // Parse data from block table
+  let topbarText = '';
+  let topbarLinkText = '';
+  let topbarLinkUrl = '';
+  let logoText = 'SearchUnify';
+  let logoUrl = '/';
+  let demoBtnText = 'Book a Demo ↗';
+  let demoBtnUrl = '/request-demo/';
+  const navItems = [];
+
+  rows.forEach((row) => {
+    const cols = [...row.children];
+    const type = cols[0]?.textContent?.trim().toLowerCase();
+
+    if (type === 'topbar') {
+      topbarText = cols[1]?.textContent?.trim();
+      const link = cols[1]?.querySelector('a');
+      if (link) {
+        topbarLinkText = link.textContent.trim();
+        topbarLinkUrl = link.href || '#';
+        // Remove link text from topbar text
+        topbarText = cols[1]?.innerHTML || '';
+      }
+    } else if (type === 'logo') {
+      logoText = cols[1]?.textContent?.trim() || logoText;
+      const link = cols[1]?.querySelector('a');
+      logoUrl = link ? link.href : (cols[2]?.textContent?.trim() || '/');
+    } else if (type === 'demo') {
+      const link = cols[1]?.querySelector('a');
+      demoBtnText = link ? link.textContent.trim() : (cols[1]?.textContent?.trim() || demoBtnText);
+      demoBtnUrl = link ? link.href : (cols[2]?.textContent?.trim() || demoBtnUrl);
+    } else if (type === 'nav') {
+      // col1=label, col2=url, col3=dropdown links (optional)
+      const label = cols[1]?.textContent?.trim();
+      const navLink = cols[1]?.querySelector('a');
+      const url = navLink ? navLink.href : (cols[2]?.textContent?.trim() || '#');
+      const dropdownLinks = [...(cols[2]?.querySelectorAll('a') || [])];
+      const dropdown = dropdownLinks.map((a) => ({ text: a.textContent.trim(), href: a.href || '#' }));
+      if (label) navItems.push({ label, url, dropdown });
+    }
+  });
+
+  // Build logo HTML — split on capital U for Search|Unify
+  const logoSplit = logoText.match(/^(Search)(Unify)$/i);
+  const logoHTML = logoSplit
+    ? `<span class="logo-search">${logoSplit[1]}</span><span class="logo-unify">${logoSplit[2]}</span>`
+    : `<span class="logo-search">${logoText}</span>`;
+
+  // Build topbar HTML
+  const topbarHTML = topbarText
+    ? `<div class="header-topbar">
+        <div class="header-topbar-inner">
+          <span class="topbar-text">${topbarText}</span>
+        </div>
+      </div>`
+    : '';
+
+  // Build nav items HTML
+  const navHTML = navItems.map(({ label, url, dropdown }) => {
+    const hasDropdown = dropdown.length > 0;
+    return `
+      <li class="${hasDropdown ? 'has-dropdown' : ''}">
+        <a href="${url}">${label}${hasDropdown ? ' <span class="chevron">&#8964;</span>' : ''}</a>
+        ${hasDropdown ? `
+          <div class="dropdown">
+            ${dropdown.map((d) => `<a href="${d.href}">${d.text}</a>`).join('')}
+          </div>` : ''}
+      </li>
+    `;
+  }).join('');
+
+  block.innerHTML = `
+    ${topbarHTML}
     <nav class="header-nav">
       <div class="header-nav-inner">
-
         <div class="header-logo">
-          <a href="/">
-            <span class="logo-search">Search</span><span class="logo-unify">Unify</span>
-          </a>
+          <a href="${logoUrl}">${logoHTML}</a>
         </div>
-
         <ul class="header-links" id="mainNav">
-          <li class="has-dropdown">
-            <a href="#">Platform <span class="chevron">&#8964;</span></a>
-            <div class="dropdown">
-              <a href="/platform/agentic-ai-suite/">Agentic AI Suite</a>
-              <a href="/platform/search-analytics/">Analytics</a>
-              <a href="/platform/connectors/">Integrations</a>
-              <a href="/su/platform/model-context-protocols/">MCP</a>
-              <a href="/su/platform/security/">Security & Guardrails</a>
-            </div>
-          </li>
-          <li class="has-dropdown">
-            <a href="#">Products <span class="chevron">&#8964;</span></a>
-            <div class="dropdown">
-              <a href="/products/agent-helper/">Agent Helper</a>
-              <a href="/products/ai-agents/ai-support-agent/">AI Support Agent</a>
-              <a href="/products/ai-agents/ai-agent-partner/">AI Agent Partner</a>
-              <a href="/products/ai-agents/ai-knowledge-agent/">AI Knowledge Agent</a>
-              <a href="/products/cognitive-search/">Cognitive Search</a>
-              <a href="/products/knowbler/">Knowbler</a>
-              <a href="/su/searchunify-gpt/">SearchUnifyGPT™</a>
-              <a href="/products/searchunify-virtual-assistant/">Virtual Assistant</a>
-            </div>
-          </li>
-          <li class="has-dropdown">
-            <a href="/industries/">Industries <span class="chevron">&#8964;</span></a>
-            <div class="dropdown">
-              <a href="/industries/bfsi/">BFSI</a>
-              <a href="/industries/bfsi/insurance/">Insurance</a>
-              <a href="/industries/bfsi/banking/">Banking</a>
-            </div>
-          </li>
-          <li class="has-dropdown">
-            <a href="/resource-center/">Resources <span class="chevron">&#8964;</span></a>
-            <div class="dropdown">
-              <a href="/resource-center/blog/">Blogs</a>
-              <a href="/resource-center/events/">Events</a>
-              <a href="/resource-center/videos/">Videos</a>
-              <a href="/expert-hub/">Expert Hub</a>
-              <a href="/resource-center/the-customer-service-show/">Customer Service Show</a>
-            </div>
-          </li>
-          <li class="has-dropdown">
-            <a href="#">Company <span class="chevron">&#8964;</span></a>
-            <div class="dropdown">
-              <a href="/company/about-us/">About Us</a>
-              <a href="/company/leadership/">Leadership</a>
-              <a href="/company/recognitions/">Awards & Recognitions</a>
-              <a href="/company/press-releases/">Newsroom</a>
-              <a href="/company/partner-network/">Partners</a>
-              <a href="/company/contact-us/">Contact Us</a>
-            </div>
-          </li>
+          ${navHTML}
         </ul>
-
         <div class="header-actions">
-          <a href="/request-demo/" class="btn-demo">Book a Demo ↗</a>
+          <a href="${demoBtnUrl}" class="btn-demo">${demoBtnText}</a>
           <button class="btn-search" aria-label="Search">&#128269;</button>
         </div>
-
         <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
       </div>
     </nav>
@@ -86,18 +106,22 @@ export default function decorate(block) {
   // Mobile menu toggle
   const hamburger = block.querySelector('#hamburger');
   const links = block.querySelector('#mainNav');
-  hamburger.addEventListener('click', () => {
-    links.classList.toggle('open');
-  });
+  if (hamburger && links) {
+    hamburger.addEventListener('click', () => {
+      links.classList.toggle('open');
+    });
+  }
 
   // Dropdown hover for desktop
   const dropdowns = block.querySelectorAll('.has-dropdown');
   dropdowns.forEach((item) => {
     item.addEventListener('mouseenter', () => {
-      item.querySelector('.dropdown').style.display = 'flex';
+      const dd = item.querySelector('.dropdown');
+      if (dd) dd.style.display = 'flex';
     });
     item.addEventListener('mouseleave', () => {
-      item.querySelector('.dropdown').style.display = 'none';
+      const dd = item.querySelector('.dropdown');
+      if (dd) dd.style.display = 'none';
     });
   });
 }
