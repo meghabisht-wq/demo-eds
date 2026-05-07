@@ -4,7 +4,7 @@ export default async function decorate(block) {
   let rows = [...block.children].filter((row) => row.children[0]?.textContent?.trim());
 
   if (rows.length === 0) {
-    const resp = await fetch('/header.plain.html');
+    const resp = await fetch('/nav.plain.html');
     if (resp.ok) {
       const temp = document.createElement('div');
       temp.innerHTML = await resp.text();

@@ -156,7 +156,7 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   const { pathname } = window.location;
-  const isHeaderPage = pathname === '/header';
+  const isHeaderPage = pathname === '/nav';
   const isFooterPage = pathname === '/footer';
 
   if (!isHeaderPage) loadHeader(doc.querySelector('header'));
