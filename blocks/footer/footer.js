@@ -1,5 +1,17 @@
-export default function decorate(block) {
-  const rows = [...block.children];
+export default async function decorate(block) {
+  // When loaded via loadFooter() in scripts.js, the block is built empty.
+  // Fetch the footer document content ourselves in that case.
+  let rows = [...block.children].filter((row) => row.children[0]?.textContent?.trim());
+
+  if (rows.length === 0) {
+    const resp = await fetch('/footer.plain.html');
+    if (resp.ok) {
+      const temp = document.createElement('div');
+      temp.innerHTML = await resp.text();
+      const footerBlock = temp.querySelector('.footer') || temp;
+      rows = [...footerBlock.children].filter((row) => row.children[0]?.textContent?.trim());
+    }
+  }
 
   // Parse data from block table
   let tagline = '';
@@ -15,13 +27,11 @@ export default function decorate(block) {
     if (type === 'tagline') {
       tagline = cols[1]?.textContent?.trim();
     } else if (type === 'social') {
-      // col1=label, col2=url
       const label = cols[1]?.textContent?.trim();
       const url = cols[2]?.textContent?.trim() || '#';
       const icon = cols[3]?.textContent?.trim() || label;
       socialLinks.push({ label, url, icon });
     } else if (type === 'group') {
-      // col1=group heading, col2=links (as list items in cell)
       const heading = cols[1]?.textContent?.trim();
       const linkEls = [...(cols[2]?.querySelectorAll('a') || [])];
       const links = linkEls.map((a) => ({ text: a.textContent.trim(), href: a.href || '#' }));
